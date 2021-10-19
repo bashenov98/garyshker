@@ -1,0 +1,132 @@
+.report-body {
+  font-family: Nunito Sans;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.report-header {
+  font-family: Nunito Sans;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.dobro-card {
+  background: #242535;
+  margin: 35px 43px;
+
+  border-radius: 20px;
+}
+
+.card-header {
+  color: #FFA800;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.card-body {
+  font-family: Nunito Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.card-progresss {
+  background: rgba(155, 155, 155, 0.29);
+  border-radius: 20px;
+}
+
+.collected-needed {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.money-value {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+item-image {
+  width: 240px;
+  height: 248px;
+}
+
+.divider {
+  height: 42px;
+  width: 1px;
+  background: #FFFFFF;
+}
+
+.progress-values {
+  margin-left: 18px;
+}
+
+progress {
+  width: 100%;
+  color: #299827;
+  background: #6A6A6A80;
+  width: 395px;
+  height: 15px;
+  border-radius: 10px;
+
+}
+
+progress {
+  width: 100%;
+  color: #299827;
+  background: #6A6A6A80;
+  width: 395px;
+  height: 15px;
+  border-radius: 10px;
+  border: 0;
+}
+
+progress::-webkit-progress-bar {
+  height: 15px;
+  border-radius: 10px;
+  border: 0;
+}
+progress::-webkit-progress-value {
+  height: 15px;
+  border-radius: 10px;
+  border: 0;
+}
+progress::-moz-progress-bar {
+  height: 15px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.progress-bars {
+  align-items: center;
+}

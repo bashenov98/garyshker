@@ -1,0 +1,131 @@
+.my-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--hide {
+    display: none;
+  }
+
+  .my-modal__content {
+    position: relative;
+    width: 1101px;
+    min-height: 533px;
+    background: #26212E;
+    border-radius: 10px;
+
+    padding: 40px 60px 56px 60px;
+
+    .my-modal__close {
+      position: absolute;
+      top: 15px;
+      right: 23px;
+      cursor: pointer;
+    }
+  }
+}
+
+.modal__content {
+  color: #FFFFFF;
+  .modal__info {
+    flex-grow: 1;
+    .modal__info__category {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 15px;
+    }
+    .modal__info__time {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 12px;
+      color: #808191;
+    }
+    .modal__info__title {
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 36px;
+      margin-top: 20px;
+      margin-bottom: 35px;
+    }
+    .modal__info__desc {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .modal__info__text {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  .modal__video {
+    color: white;
+    margin-left: 44px;
+    width: 591px;
+    min-width: 591px;
+    height: 343px;
+    background: #242730;
+    .video-block {
+      position: relative;
+      height: 100%;
+      &__gradient {
+        position: relative;
+        background-image: linear-gradient(90deg, #141414 4.25%, rgba(20, 20, 20, 0) 100%);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        &__pause {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        &__play {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          width: 79px;
+          height: 79px;
+          background: #424242;
+          border-radius: 100%;
+          cursor: pointer;
+          img {
+            margin-left: 26px;
+          }
+        }
+      }
+      .video-block__video {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        clip-path: inset(0 0 0 10px round 3px);
+        div {
+          width: 150% !important;
+          height: 150% !important;
+        }
+      }
+    }
+  }
+  .m-right-3 {
+    margin-right: 16px;
+  }
+  .modal-comment {
+    margin-top: 72px;
+  }
+}

@@ -1,0 +1,66 @@
+.footer {
+    padding: 75px 186px 97px 186px;
+    background: #26212E;
+    color: #FFFFFF;
+
+    .footer-columns {
+        margin-top: 70px;
+        .footer-column {
+            .footer-column__item {
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 15px;
+                color: #FFFFFF;
+                margin-top: 16px;
+                text-decoration: none;
+                &:first-of-type {
+                    margin-top: 0;
+                    color: #FFD2DD;
+                }
+            }
+            &--services {
+                margin-right: 172px;
+            }
+            &--about {
+                margin-right: 172px;
+            }
+        }
+    }
+
+    .footer-bottom {
+        margin-top: 69px;
+        .footer-bottom__text {
+            margin-right: 26px;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 22px;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+    }
+    .m-right-3 {
+        margin-right: 16px;
+    }
+
+    .footer-chat {
+        .footer-chat__text {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 15px;
+            color: #FFFFFF;
+            margin-bottom: 42px;
+        }
+        .footer-chat__btn {
+            height: 50px;
+            border: 1.5px solid #FFA800;
+            border-radius: 8px;
+            padding: 12px 45px;
+
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 25px;
+            color: #FFFFFF;
+            background: #26212E;
+        }
+    }
+}
