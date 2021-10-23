@@ -1,0 +1,116 @@
+.about {
+  width: 100%;
+  margin-top: 120px;
+  color: #FFFFFF;
+
+  .about__title {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 59px;
+  }
+
+  .about__desc {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 24px;
+  }
+
+  .about-mt-96 {
+    margin-top: 96px;
+  }
+
+  .about-mt-32 {
+    margin-top: 32px;
+  }
+
+  .about-top {
+    width: 750px;
+    min-width: 750px;
+  }
+
+  .about-tab {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #C4C4C4;
+    margin-right: 32px;
+
+    &--active {
+      color: #FFA800;
+      border-bottom: 2px solid #FFA800;
+    }
+  }
+  .about-btn {
+    width: 257px;
+    height: 72px;
+    border: 1px solid #FFA800;
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.24);
+    border-radius: 16px;
+    background: #0C0B15;
+    margin-top: 40px;
+
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #FFA800;
+  }
+  .about-people {
+    .about-people__item {
+      margin-top: 32px;
+      .about-people__item__title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        color: #FFA800;
+      }
+      .about-people__list {
+        margin-top: 24px;
+      }
+      .about-person__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 56px;
+        .about-person__item__img {
+          width: 100px;
+          height: 100px;
+        }
+        .about-person__item__name {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 30px;
+          margin-top: 12px;
+        }
+        .about-person__item__job {
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 21px;
+        }
+      }
+    }
+  }
+  .about-divider {
+    width: 90%;
+    height: 1px;
+    background: #454545;
+    margin-top: 77px;
+    margin-bottom: 64px;
+  }
+  .about-bottom {
+    .about-bottom__title {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 12px;
+    }
+    .about-bottom__desc {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 16px;
+    }
+  }
+}

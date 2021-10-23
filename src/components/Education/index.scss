@@ -83,3 +83,27 @@
     margin-top: 34px;
 }
 
+.main-bottom {
+    width: 1101px;
+    min-width: 1101px;
+
+    margin-top: 32px;
+
+    .main-bottom__text {
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 28px;
+        color: #FFFFFF;
+        margin-left: 10px;
+    }
+    .main-bottom__group {
+        margin-top: 32px;
+    }
+    .main-bottom__left {
+        width: 490px;
+    }
+    .main-bottom__right {
+        width: 595px;
+    }
+}
+

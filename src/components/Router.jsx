@@ -7,7 +7,7 @@ const Router = () => {
     const {isAuth, setIsAuth} = useContext(AuthContext);
 
     return (
-        <div>
+        <div className="w-100">
             {isAuth
                 ?
                 <Switch>

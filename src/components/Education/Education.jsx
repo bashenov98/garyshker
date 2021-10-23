@@ -13,6 +13,7 @@ import {ReadItem} from "../ReadItem/ReadItem";
 import {WatchItem} from "../WatchItem/WatchItem";
 import {Modal} from "../Modal/Modal";
 import axios from "axios";
+import {MainGroup} from "../MainGroup/MainGroup";
 
 
 
@@ -115,8 +116,8 @@ const Education = () => {
         initialSlide: 0,
     };
     return (
-        <div className="main d-flex">
-            <div className="d-flex flex-column main-right">
+        <div className="main d-flex w-100">
+            <div className="d-flex flex-column w-100 align-items-start">
                 <div className="main-categories d-flex align-items-center">
                     <div className="main-categories__all">
                         <span className="main-categories__text">Все темы</span>
@@ -172,6 +173,20 @@ const Education = () => {
                         {videos.map((item, index) => (
                             <WatchItem item={item} key={index}/>
                         ))}
+                    </div>
+                </div>
+                <div className="main-bottom">
+                    <div className="d-flex align-items-center">
+                        <img src={watch} alt="star icon" className="category-item__img"/>
+                        <div className="main-popular__text">Смотреть</div>
+                    </div>
+                    <div className="main-bottom__group d-flex justify-content-between">
+                        <div className="main-bottom__left">
+                            <MainGroup items={popularBlogs.slice(0, 3)}/>
+                        </div>
+                        <div className="main-bottom__right">
+                            <MainGroup items={popularBlogs.slice(1, 4)} isColumnReverse isRowReverse/>
+                        </div>
                     </div>
                 </div>
             </div>
