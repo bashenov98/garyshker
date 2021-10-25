@@ -9,6 +9,7 @@ import Router from "./components/Router";
 function App() {
     const [isAuth, setIsAuth] = useState(false);
     const [isAuthPage, setIsAuthPage] = useState(false);
+    const [hideSidebar, setHideSidebar] = useState(false);
     const [is404Page, setIs404Page] = useState(false);
     const [token, setToken] = useState('');
 
@@ -23,11 +24,12 @@ function App() {
                     is404Page,
                     setIs404Page,
                     token,
-                    setToken
+                    setToken,
+                    setHideSidebar,
                 }}>
                     {!isAuthPage && !is404Page && <Header/>}
                     <div className="main d-flex">
-                        {!isAuthPage && !is404Page && <Sidebar/>}
+                        {!isAuthPage && !is404Page && !hideSidebar && <Sidebar/>}
                         <div className="d-flex flex-column main-right">
                             <Router/>
                         </div>

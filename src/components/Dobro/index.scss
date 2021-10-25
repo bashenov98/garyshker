@@ -1,205 +1,110 @@
-.report-body {
-  font-family: Nunito Sans;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 27px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #FFFFFF;
-}
+.dobro-page {
+  padding-top: 64px;
+  padding-right: 40px;
 
-.report-header {
-  font-family: Nunito Sans;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 42px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #FFFFFF;
-}
+  .dobro-page__btn {
+    padding: 24px 40px;
+    border: 1px solid #FFA800;
+    border-radius: 8px;
+    background: #0C0B15;
 
-.dobro-card {
-  background: #242535;
-  margin: 35px 43px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #FFA800;
+  }
 
-  border-radius: 20px;
-}
+  .dobro-item {
+    width: 546px;
+    height: 393px;
+    background: #242535;
+    border-radius: 20px;
+    padding: 0;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    position: relative;
 
-.card-header {
-  color: #FFA800;
-  font-family: Poppins;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 34px;
-  letter-spacing: 0em;
-  text-align: left;
-}
+    .dobro-item__blur {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #242535;
+      opacity: 0.5;
+    }
 
-.card-body {
-  font-family: Nunito Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #FFFFFF;
-}
+    &:nth-child(odd) {
+      margin-right: 30px;
+    }
 
-.card-progresss {
-  background: rgba(155, 155, 155, 0.29);
-  border-radius: 20px;
-}
+    .dobro-item__status {
+      background: #22B028;
+      border-radius: 20px 0px;
+      width: auto;
+      padding: 6px 34px;
+      &--completed {
+        background: #44454B;
+      }
+      .dobro-item__status__label {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+    .dobro-item__content {
+      padding: 32px 40px 64px 40px;
+    }
+    .dobro-item__left {
+      margin-right: 32px;
+      .dobro-item__title {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 48px;
+      }
+      .dobro-item__desc {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 20px;
+      }
+      .dobro-item__slider {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 8px;
+        border-radius: 10px;
+        &--active {
+          background: #22B028;
+          z-index: 111;
+        }
+        &--full {
+          background: rgba(106, 106, 106, 0.5);
+          width: 100%;
+          z-index: 100;
+        }
+      }
+      .dobro-item__button {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        color: #FFA800;
+        padding: 20px 74px;
+        border: 1px solid #FFA800;
+        border-radius: 12px;
+        background: #242535;
+        margin-top: 32px;
+      }
+    }
+    .dobro-item__img {
+      width: 161px;
+      height: 197px;
+    }
+  }
 
-.collected-needed {
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 15px;
-  letter-spacing: 0px;
-  text-align: left;
-  color: #FFFFFF;
-}
-
-.money-value {
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 15px;
-  letter-spacing: 0px;
-  text-align: left;
-  color: #FFFFFF;
-}
-
-item-image {
-  width: 240px;
-  height: 248px;
-}
-
-.divider {
-  height: 42px;
-  width: 1px;
-  background: #FFFFFF;
-}
-
-.progress-values {
-  margin-left: 18px;
-}
-
-progress {
-  width: 100%;
-  color: #299827;
-  background: #6A6A6A80;
-  width: 395px;
-  height: 15px;
-  border-radius: 10px;
-
-}
-
-progress {
-  width: 100%;
-  color: #299827;
-  background: #6A6A6A80;
-  width: 395px;
-  height: 15px;
-  border-radius: 10px;
-  border: 0;
-}
-
-progress::-webkit-progress-bar {
-  height: 15px;
-  border-radius: 10px;
-  border: 0;
-}
-progress::-webkit-progress-value {
-  height: 15px;
-  border-radius: 10px;
-  border: 0;
-}
-progress::-moz-progress-bar {
-  height: 15px;
-  border-radius: 10px;
-  border: 0;
-}
-
-.progress-bars {
-  align-items: center;
-}
-
-.item-card {
-  background: #242535;
-  border-radius: 20px;
-}
-
-.item-header {
-  font-family: Poppins;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #FFFFFF;
-}
-
-.item-body {
-  font-family: Nunito Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #ffffff;
-}
-
-.item-button {
-  height: 64px;
-  width: 240px;
-  left: 40px;
-  top: 265px;
-  border-radius: 12px;
-  padding: 20px 10px 20px 10px;
-  border: 1px #FFA800 solid;
-  background: none;
-  color: #FFA800;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0px;
-  text-align: left;
-}
-
-.item-status {
-  background: #22B028;
-  border-radius: 20px 0px;
-  height: 32px;
-  width: 144px;
-  left: -0.00006103515625px;
-  top: 0px;
-}
-
-.item-status-label {
-  left: 6.04%;
-  right: 79.85%;
-  top: 1.53%;
-  bottom: 93.13%;
-
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
-  /* identical to box height */
-
-
-  color: #FFFFFF;
-
+  .mb-36 {
+    margin-bottom: 36px;
+  }
+  .mb-16 {
+    margin-bottom: 16px;
+  }
 }

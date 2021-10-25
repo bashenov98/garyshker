@@ -1,28 +1,77 @@
-h3 {
-  font-family: Poppins;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-
-.headers {
+.contact {
+  padding: 64px 0 64px 246px;
   color: #FFFFFF;
-}
 
-.contents {
-  color: #8C8C8C;
-}
+  .contact-left {
+    max-width: 451px;
+    .contact-left__title {
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 66px;
+    }
+    .contact-left__desc {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 27px;
+      margin-bottom: 32px;
+    }
+    .contact-left__input {
+      margin-bottom: 12px;
+      background: #26212E;
+      border-radius: 8px;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+      padding: 17px 20px 18px 20px;
+      border: none;
+      outline: none;
+      color: inherit;
+      &--big {
+        height: 160px;
+      }
+      &::placeholder {
+        color: #817B8B;
+      }
+    }
+    .contact-left__btn {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+      text-transform: uppercase;
+      color: #FFA800;
+      padding: 24px 170px;
+      border: 2px solid #FFA800;
+      border-radius: 8px;
+      background: #0C0B15;
+      margin-top: 12px;
+    }
+  }
 
-.main-header {
-  font-family: Poppins;
-  font-size: 72px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 108px;
-  letter-spacing: 0px;
-  text-align: left;
-  color: #FFFFFF;
+  .contact-divider {
+    height: 538px;
+    width: 2px;
+    min-width: 2px;
+    margin: 36px 96px;
+    background: #26212E;;
+  }
+
+  .contact-right {
+    min-width: 382px;
+    margin-top: 22px;
+    .contact-right__title {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 36px;
+    }
+    .contact-right__desc {
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      color: #8C8C8C;
+      margin-top: 4px;
+    }
+    .mb-40 {
+      margin-bottom: 40px;
+    }
+  }
 }

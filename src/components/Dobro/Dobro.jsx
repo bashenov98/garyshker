@@ -1,22 +1,40 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {MenuContext} from "../../context";
-import backpack from "../../assets/images/backpack.png"
-import DobroDetail from "./DobroDetail";
-import {Sidebar} from "../Sidebar/Sidebar";
-import cultureImg from "../../assets/images/culture-icon.png";
-import star from "../../assets/images/star.png";
-import {PopularItem} from "../PopularItem/PopularItem";
-import book from "../../assets/images/book.png";
-import {ReadItem} from "../ReadItem/ReadItem";
-import watch from "../../assets/images/watch.png";
-// import {WatchItem} from "./WatchItem/WatchItem";
-import {Modal} from "../Modal/Modal";
+import React, {useEffect, useState} from 'react';
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 import DobroItem from "./DobroItem";
+import './index.scss';
 
 const Dobro = () => {
-    const [dobro, setDobro] = useState([]);
+    const [dobro, setDobro] = useState([
+      {
+        is_completed: false,
+        title: 'РюкзакKIT1',
+        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
+        collected: '1000000',
+        necessary: '1500000',
+      },
+      {
+        is_completed: true,
+        title: 'РюкзакKIT2',
+        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
+        collected: '1000000',
+        necessary: '1500000',
+      },
+      {
+        is_completed: true,
+        title: 'РюкзакKIT3',
+        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
+        collected: '1000000',
+        necessary: '1500000',
+      },
+      {
+        is_completed: false,
+        title: 'РюкзакKIT4',
+        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
+        collected: '1000000',
+        necessary: '1500000',
+      },
+    ]);
     const router = useHistory();
 
     useEffect(() => {
@@ -46,20 +64,18 @@ const Dobro = () => {
     }
 
     return (
-        <div>
-            <div>
-                <button>ПОДДЕРЖАТЬ ПРОЕКТ ДЕНЬГОЙ</button>
-            </div>
-            <div>
-                {dobro.map(item => {
-                    return (
-                        <div>
-                            <DobroItem item={item}/>
-                        </div>
-                    )
-                })}
-            </div>
+      <div className="dobro-page">
+        <div className="mb-36">
+          <button className="dobro-page__btn">ПОДДЕРЖАТЬ ПРОЕКТ ДЕНЬГОЙ</button>
         </div>
+        <div className="d-flex flex-wrap">
+          {dobro.map(item => {
+            return (
+              <DobroItem item={item}/>
+            )
+          })}
+        </div>
+      </div>
     );
 };
 

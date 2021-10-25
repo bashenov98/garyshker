@@ -22,12 +22,13 @@ const Login = () => {
         })
             .then(function (response) {
                 console.log(response)
-                if (response.status == 200) {
+                if (response.status === 200) {
                     setError('');
                     setIsAuth(true);
                     localStorage.setItem('auth', 'true');
                     localStorage.setItem('token', response.data.token);
-                    router.push("/main")
+                    router.push("/main");
+                    setIsAuthPage(false);
                 }
             })
             .catch(function (error) {
