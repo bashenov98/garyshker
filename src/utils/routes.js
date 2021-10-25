@@ -6,6 +6,7 @@ import Login from "../components/auth/Login/Login";
 import Signup from "../components/auth/Signup/Signup";
 import {ItemDetail} from "../components/ItemDetail/ItemDetail";
 import {AboutUs} from "../components/AboutUs/AboutUs";
+import ContactUs from "../components/ContactUs/ContactUs";
 
 export const routes = [
     {path: '/notfound', component: NotFound, exact: true},
@@ -15,5 +16,6 @@ export const routes = [
     {path: '/login', component: Login},
     {path: '/signup', component: Signup},
     {path: '/item-detail', component: ItemDetail},
-    {path: '/about', component: AboutUs}
+    {path: '/about', component: AboutUs},
+    {path: '/contact', component: ContactUs}
 ]
