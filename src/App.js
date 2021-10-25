@@ -10,6 +10,7 @@ function App() {
     const [isAuth, setIsAuth] = useState(false);
     const [isAuthPage, setIsAuthPage] = useState(false);
     const [is404Page, setIs404Page] = useState(false);
+    const [token, setToken] = useState('');
 
     return (
         <div style={{backgroundColor: '#0C0B15'}}>
@@ -20,7 +21,9 @@ function App() {
                     isAuthPage,
                     setIsAuthPage,
                     is404Page,
-                    setIs404Page
+                    setIs404Page,
+                    token,
+                    setToken
                 }}>
                     {!isAuthPage && !is404Page && <Header/>}
                     <div className="main d-flex">

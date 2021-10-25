@@ -130,3 +130,76 @@ progress::-moz-progress-bar {
 .progress-bars {
   align-items: center;
 }
+
+.item-card {
+  background: #242535;
+  border-radius: 20px;
+}
+
+.item-header {
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.item-body {
+  font-family: Nunito Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #ffffff;
+}
+
+.item-button {
+  height: 64px;
+  width: 240px;
+  left: 40px;
+  top: 265px;
+  border-radius: 12px;
+  padding: 20px 10px 20px 10px;
+  border: 1px #FFA800 solid;
+  background: none;
+  color: #FFA800;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.item-status {
+  background: #22B028;
+  border-radius: 20px 0px;
+  height: 32px;
+  width: 144px;
+  left: -0.00006103515625px;
+  top: 0px;
+}
+
+.item-status-label {
+  left: 6.04%;
+  right: 79.85%;
+  top: 1.53%;
+  bottom: 93.13%;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+
+}

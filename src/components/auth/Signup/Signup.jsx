@@ -16,14 +16,13 @@ const Signup = () => {
     const signup = event => {
         console.log(data.terms_ofuser)
         axios.post("http://195.210.47.160/auth/signup/", {
+            email: data.email,
             password: data.password,
             terms_ofuser: data.terms_ofuser,
             profile:{
                 full_name: data.fullname,
-                age:"22",
-                gender:"не указан",
-                city: data.countrycity,
-                phone:"87087912265"
+                birth_date: data.birth_date,
+                city: data.countrycity
             }
             }
         )
@@ -31,6 +30,7 @@ const Signup = () => {
                 if (response.status == 200) {
                     setError('');
                     console.log(response);
+                    router.push('login');
                 }
             })
             .catch(function (error) {
