@@ -48,49 +48,51 @@ const Signup = () => {
     }
     return (
         <div className="sign-up">
-            <div className="sign-up__top d-flex justify-content-end">
-                <button className="sign-up__top__btn" onClick={() => {router.push('/login')}}>Sign in</button>
-                <button className="sign-up__top__btn" onClick={() => {router.push('/edu')}}>Home Page</button>
-            </div>
-            <div className="sign-up__content d-flex justify-content-between">
-                <div className="d-flex flex-column justify-content-center">
+            <div className="sign-up__top d-flex justify-content-between">
+                <div className="d-flex flex-column justify-content-center sign-up__top__img">
                     <img alt="logo" src={logoIcon}/>
                 </div>
+                <div className="d-flex">
+                    <button className="sign-up__top__btn" onClick={() => {router.push('/login')}}>Регистрация</button>
+                    <button className="sign-up__top__btn sign-up__top__btn--active" onClick={() => {router.push('/edu')}}>Авторизация</button>
+                </div>
+            </div>
+            <div className="sign-up__content d-flex justify-content-center">
                 <div className="sign-up__form">
-                    <div className="sign-up__form__title">Please fill in your information to sign up</div>
-                    <div className="sign-up__form__name">Full Name</div>
+                    <div className="sign-up__form__title">Регистрация</div>
+                    <div className="sign-up__form__name">Имя и фамилия</div>
                     <input type="text"
                            value={data.fullname}
                            onChange={(e) => setData({...data, fullname: e.target.value})}
                            className="sign-up__form__input"
                     />
-                    <div className="sign-up__form__name">Country, City</div>
+                    <div className="sign-up__form__name">Страна, город</div>
                     <input type="text"
                            value={data.countrycity}
                            onChange={(e) => setData({...data, countrycity: e.target.value})}
                            className="sign-up__form__input"
                     />
-                    <div className="sign-up__form__name">Date of birth</div>
+                    <div className="sign-up__form__name">Дата рождения</div>
                     <input type="date"
                            value={data.birth_date}
                            onChange={(e) => setData({...data, birth_date: e.target.value})}
                            className="sign-up__form__input"
                     />
-                    <div className="sign-up__form__name">Email address</div>
+                    <div className="sign-up__form__name">Почта</div>
                     <input type="text" className="sign-up__form__input"/>
-                    <div className="sign-up__form__name">Password</div>
+                    <div className="sign-up__form__name">Пароль</div>
                     <input type="password"
                            value={data.password}
                            onChange={(e) => setData({...data, password: e.target.value})}
                            className="sign-up__form__input"
                     />
-                    <div className="sign-up__form__name">Confirm Password</div>
+                    <div className="sign-up__form__name">Подтвердить пароль</div>
                     <input type="password"
                            value={data.password2}
                            onChange={(e) => setData({...data, password2: e.target.value})}
                            className="sign-up__form__input"
                     />
-                    <br/><label>{error}</label>
+                    <label>{error}</label>
                     <div className="sign-up__form__name">Наши ценности</div>
                     <ul>
                         <li>Любовь</li>
@@ -108,9 +110,12 @@ const Signup = () => {
                            onClick={terms}
                            id="values"
                     /><label className="sign-up__form__label">I agree to <a href="#">terms & conditions</a></label>
-                    <br/>
-                    <div className="d-flex justify-content-end w-100">
-                        <button className="sign-up__form__btn" onClick={signup}>Sign up</button>
+                    <div className="sign-up-forgot">
+                        <div className="d-flex justify-content-between align-items-center w-100">
+                            <a href="" className="sign-up-forgot__text">Забыли пароль?</a>
+                            <button className="sign-up-forgot__btn" onClick={signup}>Войти</button>
+                        </div>
+                        <label className="sign-up-error">{error}</label>
                     </div>
                 </div>
             </div>

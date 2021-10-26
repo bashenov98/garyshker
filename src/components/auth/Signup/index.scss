@@ -1,48 +1,61 @@
 .sign-up {
-  padding: 25px 169px 249px 192px;
+  padding-top: 38px;
+  width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
   .sign-up__top {
     .sign-up__top__btn {
-      padding: 7px 18px;
-      font-weight: normal;
+      padding: 13px 34px 13px 40px;
+      font-weight: 600;
       font-size: 16px;
-      line-height: 24px;
-      color: #FFFFFF;
-      height: 38px;
-      border: 1px solid #FFFFFF;
-      border-radius: 10px;
+      line-height: 22px;
+      color: #C4BDCF;
       margin-left: 20px;
       background: #0C0B15;
+      border: 1px solid #C4BDCF;
+      border-radius: 8px;
+      &--active {
+        color: #26212E;
+        background: #FFA800;
+        border-radius: 8px;
+        border: none;
+      }
+    }
+    .sign-up__top__img {
+      width: 184px;
+      height: 27.65px;
     }
   }
 
   .sign-up__content {
-    margin-top: 97px;
-
+    margin-top: 128px;
     .sign-up__form {
       color: #FFFFFF;
       .sign-up__form__title {
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 33px;
-        margin-bottom: 50px;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 44px;
+        color: #C4BDCF;
+        margin-bottom: 20px;
       }
       .sign-up__form__name {
         font-weight: 600;
         font-size: 14px;
         line-height: 19px;
+        color: #817B8B;
       }
       .sign-up__form__input {
         width: 600px;;
         font-weight: 600;
         font-size: 14px;
         line-height: 19px;
-        background: #0C0B15;
+        background: #26212E;
+        border-radius: 8px;
         outline: none;
         border: none;
-        border-bottom: 1px solid #D9D9D9;
-        margin-top: 13px;
-        margin-bottom: 39px;
-        padding-bottom: 4px;
+        margin-top: 8px;
+        padding: 17px;
+        margin-bottom: 19px;
         color: inherit;
 
         &::placeholder {
@@ -53,6 +66,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
+        color: #C4BDCF;
         margin-left: 12px;
         a {
           color: #FFFFFF;
@@ -71,5 +85,33 @@
         margin-top: 50px;
       }
     }
+  }
+  .sign-up-forgot {
+    margin-top: 34px;
+    .sign-up-forgot__text {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 25px;
+      color: #C4BDCF;
+      text-decoration: none;
+    }
+    .sign-up-forgot__btn {
+      border: 1px solid #FFA800;
+      border-radius: 10px;
+      padding: 12px 48px;
+      background: #0C0B15;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: capitalize;
+      color: #FFA800;
+    }
+  }
+  .sign-up-error {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #F44336;
   }
 }
