@@ -48,7 +48,7 @@ export const Sidebar = () => {
           <span className={(Location.pathname === '/contact') ? "menu-item__text--active" : "menu-item__text"}>Контакты</span>
         </div>
       </div>
-      <div className="d-flex align-items-center mb-4">
+      <div className="d-flex align-items-center mb-4" onClick={() => {window.location.href = 'https://t.me/garyshkerchat'}}>
         <div className="chat-block d-flex justify-content-center align-items-center">
           <img src={phone} alt="phone icon"/>
         </div>

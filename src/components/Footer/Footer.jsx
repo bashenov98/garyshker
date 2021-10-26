@@ -17,7 +17,7 @@ const Footer = () => {
                     <a href='/dobro' className="footer-column__item">Добро</a>
                   </div>
                   <div className="footer-column footer-column--about d-flex flex-column">
-                    <a href='#' className="footer-column__item">О нас</a>
+                    <a href='/about' className="footer-column__item">О нас</a>
                     <a href='#' className="footer-column__item">Our Story</a>
                     <a href='#' className="footer-column__item">Benefits</a>
                     <a href='#' className="footer-column__item">Team</a>
@@ -25,13 +25,13 @@ const Footer = () => {
                   </div>
                   <div className="footer-column d-flex flex-column">
                     <a href='#' className="footer-column__item">Помощь</a>
-                    <a href='#' className="footer-column__item">FAQs</a>
-                    <a href='#' className="footer-column__item">Contact Us</a>
+                    <a href='/faq' className="footer-column__item">FAQs</a>
+                    <a href='/contact' className="footer-column__item">Contact Us</a>
                   </div>
                 </div>
                 <div className="d-flex flex-column justify-content-center align-items-center footer-chat">
                   <div className="footer-chat__text">Перейти в чат сообщества?</div>
-                  <button className="footer-chat__btn">Перейти!</button>
+                  <button className="footer-chat__btn" onClick={() => {window.location.href = 'https://t.me/garyshkerchat'}}>Перейти!</button>
                 </div>
             </div>
             <div className="footer-bottom d-flex justify-content-between">

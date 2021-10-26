@@ -65,42 +65,49 @@ const Education = () => {
     const [activeItem, setActiveItem] = useState();
     const [videos, setVideos] = useState([])
     const [reports, setReports] = useState([])
-
+    const [category, setCategory] = useState('all')
 
     const fetchVideos = () => {
         axios.get("http://195.210.47.160/edu/videos")
             .then(function (response) {
                 console.log(response);
-                setVideos(response.data.videos)
-                console.log(videos)
+                if (category == 'all')
+                {
+                    setVideos(response.data.videos)
+                }
+                else {
+                    var arr = response.data.videos
+                    setVideos(arr.filter(a => a.category.name == category))
+                }
             })
             .catch(function (error) {
-                // handle error
-                console.log(error);
             })
             .then(function () {
-                // always executed
             });
     }
     const fetchReports = () => {
         axios.get("http://195.210.47.160/edu/reports")
             .then(function (response) {
-                setReports(response.data)
-                console.log(response);
+                if (category == 'all')
+                {
+                    setReports(response.data)
+                }
+                else {
+                    var arr = response.data
+                    setReports(arr.filter(a => a.category.name == category))
+                }
             })
             .catch(function (error) {
-                // handle error
-                console.log(error);
             })
             .then(function () {
-                // always executed
             });
     }
 
     useEffect(() => {
         fetchVideos();
         fetchReports();
-    },[])
+    },[category])
+
 
     const onClickItem = (selectedItem) => {
         setShowModal(true);
@@ -119,23 +126,23 @@ const Education = () => {
         <div className="main d-flex w-100">
             <div className="d-flex flex-column w-100 align-items-start">
                 <div className="main-categories d-flex align-items-center">
-                    <div className="main-categories__all">
+                    <div className="main-categories__all"  onClick={() => {setCategory('all')}}>
                         <span className="main-categories__text">Все темы</span>
                     </div>
                     <div className="main-categories__divider"/>
-                    <div className="d-flex category-item">
+                    <div className={category=='eco' ? "d-flex category-item active" : "d-flex category-item"} onClick={() => {setCategory('eco')}}>
                         <span className="main-categories__text">🌱 Экофилософия</span>
                     </div>
-                    <div className="d-flex category-item">
+                    <div className="d-flex category-item" onClick={() => {setCategory('finance')}}>
                         <span className="main-categories__text">💸 Фин.грамотность</span>
                     </div>
-                    <div className="d-flex category-item">
+                    <div className="d-flex category-item" onClick={() => {setCategory('mental')}}>
                         <span className="main-categories__text">🙏 Ментальное здоровье</span>
                     </div>
-                    <div className="d-flex category-item">
+                    <div className="d-flex category-item" onClick={() => {setCategory('sex')}}>
                         <span className="main-categories__text">❤ ️Половое воспитание</span>
                     </div>
-                    <div className="d-flex category-item align-items-center">
+                    <div className="d-flex category-item align-items-center" onClick={() => {setCategory('culture')}}>
                         <img src={cultureImg} alt="culture icon" className="category-item__img"/>
                         <span className="main-categories__text">Культура</span>
                     </div>
