@@ -1,11 +1,15 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import './index.scss';
 import backlogo from '../../assets/images/backpack-new.png';
 import play from "../../assets/images/polygon17.png";
 import ReactPlayer from "react-player";
 import {useState} from "react";
+import {AuthContext} from "../../context";
 
 export const ItemDetail = () => {
+  const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
+  setHideSidebar(false);
+  setIsAuthPage(false);
   const itemData = {
     title: 'РюкзакKIT',
     description: 'это социальный проект направленный на помощь детям из малообеспеченных семей. Идея заключается в том, чтобы снабдить детей всеми необходимыми школьными принадлежностями для начала учебного года.',

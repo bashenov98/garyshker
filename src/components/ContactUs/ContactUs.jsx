@@ -3,8 +3,9 @@ import './index.scss';
 import {AuthContext} from "../../context";
 
 const ContactUs = () => {
-    const {setHideSidebar} = useContext(AuthContext);
-    setHideSidebar(true);
+    const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
+    setHideSidebar(false);
+    setIsAuthPage(false);
     return (
         <div className="contact d-flex">
             <div className="contact-left d-flex flex-column">
@@ -14,7 +15,7 @@ const ContactUs = () => {
                 </div>
                 <input type="text" className="contact-left__input" placeholder="Name"/>
                 <input type="text" className="contact-left__input" placeholder="E-mail"/>
-                <textarea type="text" className="contact-left__input contact-left__input--big" placeholder="Your message"/>
+                <textarea className="contact-left__input contact-left__input--big" placeholder="Your message"/>
                 <button className="contact-left__btn">Отправить</button>
             </div>
             <div className="contact-divider" />

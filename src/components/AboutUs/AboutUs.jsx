@@ -1,10 +1,14 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import './index.scss';
 import avatar1 from '../../assets/images/avatar_1.png';
 import avatar2 from '../../assets/images/avatar_2.png';
 import avatar3 from '../../assets/images/avatar_3.png';
+import {AuthContext} from "../../context";
 
 export const AboutUs = (props) => {
+  const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
+  setHideSidebar(false);
+  setIsAuthPage(false);
   const people = [
     {
       name: 'Founders',

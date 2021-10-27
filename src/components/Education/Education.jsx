@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import './index.scss';
 import cultureImg from "../../assets/images/culture-icon.png";
 import star from "../../assets/images/star.png";
@@ -14,6 +14,7 @@ import {WatchItem} from "../WatchItem/WatchItem";
 import {Modal} from "../Modal/Modal";
 import axios from "axios";
 import {MainGroup} from "../MainGroup/MainGroup";
+import {AuthContext} from "../../context";
 
 
 
@@ -61,6 +62,9 @@ const modalItem = {
 
 
 const Education = () => {
+    const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
+    setHideSidebar(false);
+    setIsAuthPage(false);
     const [showModal, setShowModal] = useState(false);
     const [activeItem, setActiveItem] = useState();
     const [videos, setVideos] = useState([])

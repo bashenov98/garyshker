@@ -1,8 +1,11 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import './index.scss';
 import {FaqItem} from "./libs/FaqItem";
+import {AuthContext} from "../../context";
 
 export const Faq = () => {
+  const {setHideSidebar} = useContext(AuthContext);
+  setHideSidebar(false);
   const items = [
     {
       title: 'Что такое Гарышкер?',
