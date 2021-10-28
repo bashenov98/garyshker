@@ -2,6 +2,9 @@ import * as React from 'react';
 import close from "../../assets/images/close.svg";
 import bookmark from "../../assets/images/bookmark.svg";
 import play from "../../assets/images/polygon17.png";
+import facebook from "../../assets/images/001-facebook.svg";
+import insta from "../../assets/images/004-instagram.svg";
+import twit from "../../assets/images/003-twitter.svg";
 import './index.scss';
 import classNames from "classnames";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -59,11 +62,11 @@ export const Modal = (props) => {
                 <div className="modal__info__text">Поделись с друзьями :)</div>
                 <div className="d-flex justify-content-between">
                   <div className="d-flex">
-                    <FontAwesomeIcon className="mr-3" icon={['fab', 'facebook']} />
+                    <img src={facebook} alt="facebook icon"/>
                     <div className="m-right-3"/>
-                    <FontAwesomeIcon icon={['fab', 'twitter']} />
+                    <img src={twit} alt="twitter icon"/>
                     <div className="m-right-3"/>
-                    <FontAwesomeIcon icon={['fab', 'instagram']} />
+                    <img src={insta} alt="instagram icon"/>
                   </div>
                   <img src={bookmark}/>
                 </div>

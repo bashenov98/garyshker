@@ -60,6 +60,28 @@ const modalItem = {
     videoSrc: 'https://www.youtube.com/watch?v=OEv8a1kY5tQ',
 };
 
+const categories = [
+    {
+        title: '🌱 Экофилософия',
+        code: 'eco',
+    },
+    {
+        title: '💸 Фин.грамотность',
+        code: 'finance',
+    },
+    {
+        title: '🙏 Ментальное здоровье',
+        code: 'mental',
+    },
+    {
+        title: '❤ ️Половое воспитание',
+        code: 'gender',
+    },
+    {
+        title: '👁‍🗨 Культура',
+        code: 'culture',
+    },
+]
 
 const Education = () => {
     const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
@@ -75,13 +97,13 @@ const Education = () => {
         axios.get("http://195.210.47.160/edu/videos")
             .then(function (response) {
                 console.log(response);
-                if (category == 'all')
+                if (category === 'all')
                 {
                     setVideos(response.data.videos)
                 }
                 else {
                     var arr = response.data.videos
-                    setVideos(arr.filter(a => a.category.name == category))
+                    setVideos(arr.filter(a => a.category.name === category))
                 }
             })
             .catch(function (error) {
@@ -92,13 +114,13 @@ const Education = () => {
     const fetchReports = () => {
         axios.get("http://195.210.47.160/edu/reports")
             .then(function (response) {
-                if (category == 'all')
+                if (category === 'all')
                 {
                     setReports(response.data)
                 }
                 else {
                     var arr = response.data
-                    setReports(arr.filter(a => a.category.name == category))
+                    setReports(arr.filter(a => a.category.name === category))
                 }
             })
             .catch(function (error) {
@@ -118,6 +140,10 @@ const Education = () => {
         setActiveItem(selectedItem);
     }
 
+    const onCategoryClick = (selectedCategoryCode) => {
+        setCategory(selectedCategoryCode);
+    }
+
     const settings = {
         dots: true,
         infinite: false,
@@ -130,26 +156,23 @@ const Education = () => {
         <div className="main d-flex w-100">
             <div className="d-flex flex-column w-100 align-items-start">
                 <div className="main-categories d-flex align-items-center">
-                    <div className="main-categories__all"  onClick={() => {setCategory('all')}}>
-                        <span className="main-categories__text">Все темы</span>
+                    <div className="main-categories__all"  onClick={() => onCategoryClick('all')}>
+                        <span
+                            className={classNames(['main-categories__text', category === 'all' && 'main-categories__text--active'])}
+                        >Все темы</span>
                     </div>
                     <div className="main-categories__divider"/>
-                    <div className={category=='eco' ? "d-flex category-item active" : "d-flex category-item"} onClick={() => {setCategory('eco')}}>
-                        <span className="main-categories__text">🌱 Экофилософия</span>
-                    </div>
-                    <div className="d-flex category-item" onClick={() => {setCategory('finance')}}>
-                        <span className="main-categories__text">💸 Фин.грамотность</span>
-                    </div>
-                    <div className="d-flex category-item" onClick={() => {setCategory('mental')}}>
-                        <span className="main-categories__text">🙏 Ментальное здоровье</span>
-                    </div>
-                    <div className="d-flex category-item" onClick={() => {setCategory('sex')}}>
-                        <span className="main-categories__text">❤ ️Половое воспитание</span>
-                    </div>
-                    <div className="d-flex category-item align-items-center" onClick={() => {setCategory('culture')}}>
-                        <img src={cultureImg} alt="culture icon" className="category-item__img"/>
-                        <span className="main-categories__text">Культура</span>
-                    </div>
+                    {categories.map((n, index) => (
+                        <div
+                            key={index}
+                            className={classNames(['d-flex category-item', category === n.code && 'category-item--active'])}
+                            onClick={() => onCategoryClick(n.code)}
+                        >
+                            <span
+                                className={classNames(['categories__text', category === n.code && 'categories__text--active'])}
+                            >{n.title}</span>
+                        </div>
+                    ))}
                 </div>
                 <div className="main-popular">
                     <div className="d-flex align-items-center">

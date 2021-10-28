@@ -2,6 +2,7 @@ import React from 'react';
 import backpack from "../../assets/images/backpack.png";
 import {useHistory} from "react-router-dom";
 import './index.scss';
+import classNames from "classnames";
 
 
 const DobroItem = (props) => {
@@ -40,7 +41,9 @@ const DobroItem = (props) => {
                         />
                     </div>
                     <div>{props.item.collected} ₸ из {props.item.necessary} ₸</div>
-                    <button className="dobro-item__button" onClick={() => {details(2)}}>Подробнее</button>
+                    <button
+                        className={classNames(['dobro-item__button', props.item.is_completed && 'dobro-item__button--done'])}
+                        onClick={() => {details(2)}}>Подробнее</button>
                 </div>
                 <div>
                     <img className="dobro-item__img" src={backpack} alt="backpack"/>
