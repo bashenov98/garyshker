@@ -80,7 +80,7 @@ const Header = () => {
                 ) : (
                   <div className="d-flex">
                       <button className='header-btn margin-right-16' onClick={signup}>Регистрация</button>
-                      <button className='header-btn' onClick={login}>Войти</button>
+                      <button className='header-btn header-btn--active' onClick={login}>Войти</button>
                   </div>
                 )}
             </div>

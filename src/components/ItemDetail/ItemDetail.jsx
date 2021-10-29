@@ -5,11 +5,13 @@ import play from "../../assets/images/polygon17.png";
 import ReactPlayer from "react-player";
 import {useState} from "react";
 import {AuthContext} from "../../context";
+import classNames from "classnames";
 
 export const ItemDetail = () => {
   const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
   setHideSidebar(false);
   setIsAuthPage(false);
+  const [isReportsActive, setIsReportsActive] = useState(false);
   const itemData = {
     title: 'РюкзакKIT',
     description: 'это социальный проект направленный на помощь детям из малообеспеченных семей. Идея заключается в том, чтобы снабдить детей всеми необходимыми школьными принадлежностями для начала учебного года.',
@@ -66,55 +68,93 @@ export const ItemDetail = () => {
         </div>
       </div>
       <div className="detail-btns d-flex">
-        <div className="detail-btns__item detail-btns__item--active w-50">ОПИСАНИЕ</div>
-        <div className="detail-btns__item detail-btns__item--right w-50">ОТЧЕТЫ</div>
+        <div
+            className={classNames([
+                'detail-btns__item w-50',
+                !isReportsActive && 'detail-btns__item--active',
+            ])}
+            onClick={() => setIsReportsActive(false)}
+        >ОПИСАНИЕ</div>
+        <div
+          className={classNames([
+            'detail-btns__item detail-btns__item--right w-50',
+            isReportsActive && 'detail-btns__item--active',
+          ])}
+          onClick={() => setIsReportsActive(true)}
+        >ОТЧЕТЫ</div>
       </div>
-      <div className="detail-video">
-        {itemData.videoSrc &&
-        <div className="video-block">
-          <div className="video-block__gradient">
-            {
-              isPlayActive ?
-                <div
-                  className="video-block__gradient__pause"
-                  onClick={onPauseClick}
-                /> :
-                <div
-                  className="video-block__gradient__play d-flex align-items-center"
-                  onClick={onPlayClick}
-                >
-                  <img src={play} alt="play"/>
-                </div>
-            }
+      {isReportsActive ? (
+          <div className="detail-report d-flex flex-column">
+            <div className="detail-report__title">Сентябрь</div>
+            <div className="detail-report__description">
+              В сентябре в Службе помощи людям с БАС было зарегистрировано 808 пациентов, 43 из них были зарегистрированы в этом месяце. У Фонда есть специалисты, которые оказывают им своевременную медицинскую помощь: физический терапевт провел 27 консультаций для подопечных, невролог — 31 консультацию, логопед — 20, медицинский консультант — 51, пульмонолог — 10, эрготерапевт — 11, психолог — 49, нутрициолог — 13, реаниматолог — 5. Еще 2  человека получили помощь в установке гастростомы.
+            </div>
+            <div className="detail-report__description">
+              Многие семьи нуждаются в социальной помощи в уходе за своими близкими. Так, в сентябре 24 семьи нуждалась в помощи сиделок. Эти прекрасные, профессиональные и отзывчивые люди совершили 200 визитов — 800 часов патронажного ухода. Патронажная сестра дала 75 консультаций и вышла на дом к пациентам 24 раза, а специалист по социальным вопросам проконсультировал 59 подопечных Фонда и их родственников по различным правовым вопросам.
+            </div>
+            <div className="d-flex flex-column detail-report__months">
+              {['Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'].map((n, index) => (
+                  <div className="detail-report__months__text">
+                    {n}
+                  </div>
+              ))}
+            </div>
+            <div className="detail-report__doc d-flex flex-column align-items-center">
+              <div className="detail-report__doc__title">ДОКУМЕНТЫ 📄</div>
+              <div className="detail-report__doc__text">В данном документе вы можете посмотреть полную отчетность</div>
+              <button className="detail-report__doc__btn">Скачать</button>
+            </div>
           </div>
-          <ReactPlayer
-            playing={isPlayActive}
-            muted
-            loop
-            config={{
-              youtube: {
-                playerVars: {
-                  rel: 0,
-                  ecver: 2,
-                },
-              },
-            }}
-            height={343}
-            width="100%"
-            className="video-block__video"
-            url={itemData.videoSrc}
-          />
-        </div>
-        }
-      </div>
-      <div className="detail-info">
-        <div className="detail-info__title">{itemData.infoTitle}</div>
-        <div>
-          {itemData.infoTexts.map((text, index) => (
-            <div className="detail-info__text" key={index}>{text}</div>
-          ))}
-        </div>
-      </div>
+      ) : (
+          <div className="d-flex flex-column align-items-center">
+            <div className="detail-video">
+              {itemData.videoSrc &&
+              <div className="video-block">
+                <div className="video-block__gradient">
+                  {
+                    isPlayActive ?
+                        <div
+                            className="video-block__gradient__pause"
+                            onClick={onPauseClick}
+                        /> :
+                        <div
+                            className="video-block__gradient__play d-flex align-items-center"
+                            onClick={onPlayClick}
+                        >
+                          <img src={play} alt="play"/>
+                        </div>
+                  }
+                </div>
+                <ReactPlayer
+                    playing={isPlayActive}
+                    muted
+                    loop
+                    config={{
+                      youtube: {
+                        playerVars: {
+                          rel: 0,
+                          ecver: 2,
+                        },
+                      },
+                    }}
+                    height={343}
+                    width="100%"
+                    className="video-block__video"
+                    url={itemData.videoSrc}
+                />
+              </div>
+              }
+            </div>
+            <div className="detail-info">
+              <div className="detail-info__title">{itemData.infoTitle}</div>
+              <div>
+                {itemData.infoTexts.map((text, index) => (
+                    <div className="detail-info__text" key={index}>{text}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+      )}
     </div>
   );
 };

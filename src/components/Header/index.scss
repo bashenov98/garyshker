@@ -38,16 +38,26 @@
     }
   }
   .header-btn {
-    height: 33px;
-    border: 1px solid #FFFFFF;
-    border-radius: 10px;
+    border: 1px solid #C4BDCF;
+    border-radius: 8px;
     background: #1C1B29;
+    padding: 13px 34px 13px 40px;
 
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.553191px;
-    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #C4BDCF;
+
+    &--active {
+      background: #FFA800;
+      border-radius: 8px;
+      border: 1px solid #FFA800;
+
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      color: #26212E;
+    }
   }
   .margin-right-16 {
     margin-right: 16px;

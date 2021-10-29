@@ -1,14 +1,16 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import './index.scss';
 import avatar1 from '../../assets/images/avatar_1.png';
 import avatar2 from '../../assets/images/avatar_2.png';
 import avatar3 from '../../assets/images/avatar_3.png';
 import {AuthContext} from "../../context";
+import classNames from "classnames";
 
 export const AboutUs = (props) => {
   const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
   setHideSidebar(false);
   setIsAuthPage(false);
+  const [aboutDobroActive, setAboutDobroActive] = useState(false);
   const people = [
     {
       name: 'Founders',
@@ -80,15 +82,44 @@ export const AboutUs = (props) => {
             Из чего состоит Garyshker?
           </div>
           <div className="d-flex about-mt-32">
-            <div className="about-tab about-tab--active">Garyshker.education</div>
-            <div className="about-tab">Garyshker.dobro</div>
+            <div
+              className={classNames([
+                'about-tab',
+                !aboutDobroActive && 'about-tab--active',
+              ])}
+              onClick={() => setAboutDobroActive(false)}
+            >
+              Garyshker.education
+            </div>
+            <div
+              className={classNames([
+                'about-tab',
+                aboutDobroActive && 'about-tab--active',
+              ])}
+              onClick={() => setAboutDobroActive(true)}
+            >
+              Garyshker.dobro
+            </div>
           </div>
-          <div className="about__desc">
-            Garyshker.com – магический проект, посвященный истории культуры. Мы рассказываем самыми разными способами о литературе, искусстве, истории и других гуманитарных науках, то есть о самом интересном в мире.
-          </div>
-          <button className="about-btn">
-            Перейти —
-          </button>
+          {aboutDobroActive ? (
+              <div>
+                <div className="about__desc">
+                  Garyshker.dobro – магический проект, посвященный истории культуры. Мы рассказываем самыми разными способами о литературе, искусстве, истории и других гуманитарных науках, то есть о самом интересном в мире.
+                </div>
+                <button className="about-btn">
+                  Перейти —
+                </button>
+              </div>
+          ) : (
+              <div>
+                <div className="about__desc">
+                  Garyshker.com – магический проект, посвященный истории культуры. Мы рассказываем самыми разными способами о литературе, искусстве, истории и других гуманитарных науках, то есть о самом интересном в мире.
+                </div>
+                <button className="about-btn">
+                  Перейти —
+                </button>
+              </div>
+          )}
         </div>
         <div className="about-people w-100 about-mt-96">
           <div className="about__title">
