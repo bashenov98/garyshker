@@ -25,30 +25,40 @@ const popularBlogs = [
         category: 'Ментальное здоровье',
         image: 'https://static.onecms.io/wp-content/uploads/sites/35/2019/04/16045733/benefits-yoga-fb.jpg',
         type: 'video',
+        time: '20 mins  •  2 weeks ago',
+        videoSrc: 'https://www.youtube.com/watch?v=OEv8a1kY5tQ',
     },
     {
         title: 'Знаки на пластике',
         category: 'Ментальное здоровье',
         image: 'https://img.championat.com/news/big/n/f/kak-pravilno-meditirovat-sovety-praktika_157684379279536979.jpg',
         type: 'image',
+        time: '20 mins  •  2 weeks ago',
+        videoSrc: 'https://www.youtube.com/watch?v=OEv8a1kY5tQ',
     },
     {
         title: 'Как начать копить деньги?',
         category: 'Ментальное здоровье',
         image: 'https://static.onecms.io/wp-content/uploads/sites/35/2019/04/16045733/benefits-yoga-fb.jpg',
         type: 'video',
+        time: '20 mins  •  2 weeks ago',
+        videoSrc: 'https://www.youtube.com/watch?v=OEv8a1kY5tQ',
     },
     {
         title: 'Сортировка вторсырья, гринвошинг',
         category: 'Ментальное здоровье',
         image: 'https://static.onecms.io/wp-content/uploads/sites/35/2019/04/16045733/benefits-yoga-fb.jpg',
         type: 'image',
+        time: '20 mins  •  2 weeks ago',
+        videoSrc: 'https://www.youtube.com/watch?v=OEv8a1kY5tQ',
     },
     {
         title: 'Разговоры о СЕКСЕ половое воспитание UYAT? ',
         category: 'Ментальное здоровье',
         image: 'https://static.onecms.io/wp-content/uploads/sites/35/2019/04/16045733/benefits-yoga-fb.jpg',
         type: 'image',
+        time: '20 mins  •  2 weeks ago',
+        videoSrc: 'https://www.youtube.com/watch?v=OEv8a1kY5tQ',
     },
 ];
 
@@ -216,20 +226,21 @@ const Education = () => {
                     </div>
                     <div className="main-bottom__group d-flex justify-content-between">
                         <div className="main-bottom__left">
-                            <MainGroup items={popularBlogs.slice(0, 3)}/>
+                            <MainGroup items={popularBlogs.slice(0, 3)} onItemClick={onClickItem}/>
                         </div>
                         <div className="main-bottom__right">
-                            <MainGroup items={popularBlogs.slice(1, 4)} isColumnReverse isRowReverse/>
+                            <MainGroup items={popularBlogs.slice(1, 4)} isColumnReverse isRowReverse onItemClick={onClickItem}/>
                         </div>
                     </div>
                 </div>
             </div>
-            <Modal
-                open={showModal && activeItem}
-                onClose={() => setShowModal(false)}
-                item={modalItem}
-                // item={activeItem}
-            />
+            {activeItem &&
+                <Modal
+                  open={showModal && activeItem}
+                  onClose={() => setShowModal(false)}
+                  item={activeItem}
+                />
+            }
         </div>
     );
 };

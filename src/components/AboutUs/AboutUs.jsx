@@ -5,12 +5,14 @@ import avatar2 from '../../assets/images/avatar_2.png';
 import avatar3 from '../../assets/images/avatar_3.png';
 import {AuthContext} from "../../context";
 import classNames from "classnames";
+import {useHistory} from "react-router-dom";
 
 export const AboutUs = (props) => {
   const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
   setHideSidebar(false);
   setIsAuthPage(false);
   const [aboutDobroActive, setAboutDobroActive] = useState(false);
+  const router = useHistory();
   const people = [
     {
       name: 'Founders',
@@ -63,6 +65,12 @@ export const AboutUs = (props) => {
       ]
     },
   ]
+  const onDobroClick = () => {
+    router.push('/dobro')
+  }
+  const onEduClick = () => {
+    router.push('/edu')
+  }
   return (
     <div className="about">
       <div className="about-top">
@@ -106,7 +114,7 @@ export const AboutUs = (props) => {
                 <div className="about__desc">
                   Garyshker.dobro – магический проект, посвященный истории культуры. Мы рассказываем самыми разными способами о литературе, искусстве, истории и других гуманитарных науках, то есть о самом интересном в мире.
                 </div>
-                <button className="about-btn">
+                <button className="about-btn" onClick={onDobroClick}>
                   Перейти —
                 </button>
               </div>
@@ -115,7 +123,7 @@ export const AboutUs = (props) => {
                 <div className="about__desc">
                   Garyshker.com – магический проект, посвященный истории культуры. Мы рассказываем самыми разными способами о литературе, искусстве, истории и других гуманитарных науках, то есть о самом интересном в мире.
                 </div>
-                <button className="about-btn">
+                <button className="about-btn" onClick={onEduClick}>
                   Перейти —
                 </button>
               </div>

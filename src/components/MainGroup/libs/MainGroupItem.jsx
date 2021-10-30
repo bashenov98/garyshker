@@ -3,11 +3,12 @@ import './index.scss';
 import classNames from "classnames";
 
 export const MainGroupItem = (props) => {
-  const { item, isMarginBottom } = props;
+  const { item, isMarginBottom, onClickItem } = props;
   return (
     <div
       className={classNames(['group-item', isMarginBottom && 'mar-bot-16'])}
       style={{backgroundImage: `url(${item.image})`}}
+      onClick={() => onClickItem(item)}
     >
       <div className="group-item__content d-flex flex-column">
         <div className="group-item__g align-self-end">G.</div>

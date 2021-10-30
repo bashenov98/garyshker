@@ -69,7 +69,7 @@
 .popular-items {
     margin-top: 34px;
     overflow-x: scroll;
-    overflow: scroll;
+    overflow-y: unset;
     max-width: 100%;
 }
 
@@ -81,7 +81,7 @@
 .read-items {
     overflow-x: scroll;
     margin-top: 34px;
-    overflow: scroll;
+    overflow-y: unset;
     max-width: 100%;
 }
 
@@ -94,6 +94,7 @@
 .watch-items {
     max-width: 100%;
     overflow-x: scroll;
+    overflow-y: unset;
     margin-top: 34px;
 }
 

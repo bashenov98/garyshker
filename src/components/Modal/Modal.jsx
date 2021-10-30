@@ -7,7 +7,6 @@ import insta from "../../assets/images/004-instagram.svg";
 import twit from "../../assets/images/003-twitter.svg";
 import './index.scss';
 import classNames from "classnames";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ReactPlayer from 'react-player';
 import {useState} from "react";
 import {ModalComment} from "../ModalComment/ModalComment";
@@ -19,12 +18,6 @@ const comments = [
     owner: 'Mustafa Myrza',
     time: '2 days ago',
   },
-  {
-    body: 'dont get why humans thought that using a super durable and long lasting material for packaging that \n' +
-      'you are meant to throw',
-    owner: 'Mustafa Myrza',
-    time: '2 days ago',
-  }
 ]
 
 export const Modal = (props) => {
