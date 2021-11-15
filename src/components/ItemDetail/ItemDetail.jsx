@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './index.scss';
 import backlogo from '../../assets/images/backpack-new.png';
 import play from "../../assets/images/polygon17.png";
@@ -6,12 +6,31 @@ import ReactPlayer from "react-player";
 import {useState} from "react";
 import {AuthContext} from "../../context";
 import classNames from "classnames";
+import axios from "axios";
 
 export const ItemDetail = () => {
   const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
   setHideSidebar(false);
   setIsAuthPage(false);
   const [isReportsActive, setIsReportsActive] = useState(false);
+  const [item, setItem] = useState([]);
+
+  const fetchItem = () => {
+    axios.get("http://195.210.47.160/dobro/project_detail/"+"1")
+        .then(function (response) {
+          setItem(response.data);
+          console.log(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
+  }
+
+
   const itemData = {
     title: 'РюкзакKIT',
     description: 'это социальный проект направленный на помощь детям из малообеспеченных семей. Идея заключается в том, чтобы снабдить детей всеми необходимыми школьными принадлежностями для начала учебного года.',
@@ -32,6 +51,14 @@ export const ItemDetail = () => {
     setIsPlayActive(true);
   };
 
+  useEffect(() => {
+    fetchItem();
+  },[])
+
+  const toUrl = (backurl) => {
+    return 'http://195.210.47.160'+backurl;
+  }
+
   const onPauseClick = () => {
     setIsPlayActive(false);
   };
@@ -39,29 +66,29 @@ export const ItemDetail = () => {
     <div className="detail">
       <div className="detail-item d-flex">
         <div className="detail-item__img">
-          <img src={backlogo} alt="backlogo icon"/>
+          <img src={toUrl(item.image)} alt="backlogo icon" className="item-backlogo-icon"/>
         </div>
         <div className="detail-item__content d-flex flex-column">
           <div className="detail-item__title">
-            {itemData.title}
+            {item.title}
           </div>
           <div className="detail-item__desc">
-            {itemData.description}
+            {item.small_description}
           </div>
           <div className="detail-item__bottom mt-auto d-flex flex-column">
             <div className="position-relative w-100">
               <div className="detail-item__slider detail-item__slider--full"/>
-              <div className="detail-item__slider detail-item__slider--active" style={{width: `${Number(itemData.collected) * 100 / Number(itemData.necessary)}%`}}/>
+              <div className="detail-item__slider detail-item__slider--active" style={{width: `${Number(item.collected) * 100 / Number(item.necessary)}%`}}/>
             </div>
             <div className="d-flex justify-content-center align-items-center mt-auto">
               <div className="text-center">
                 <div className="detail-item__price-title">СОБРАНО</div>
-                <div className="detail-item__price-amount">{itemData.collected} kzt</div>
+                <div className="detail-item__price-amount">{Math.trunc(item.collected)} kzt</div>
               </div>
               <div className="detail-item__price-divider"/>
               <div className="text-center">
                 <div className="detail-item__price-title">НУЖНО</div>
-                <div className="detail-item__price-amount">{itemData.necessary} kzt</div>
+                <div className="detail-item__price-amount">{Math.trunc(item.necessary)} kzt</div>
               </div>
             </div>
           </div>
@@ -108,7 +135,7 @@ export const ItemDetail = () => {
       ) : (
           <div className="d-flex flex-column align-items-center">
             <div className="detail-video">
-              {itemData.videoSrc &&
+              {item.video &&
               <div className="video-block">
                 <div className="video-block__gradient">
                   {
@@ -140,18 +167,14 @@ export const ItemDetail = () => {
                     height={343}
                     width="100%"
                     className="video-block__video"
-                    url={itemData.videoSrc}
+                    url={toUrl(item.video)}
                 />
               </div>
               }
             </div>
             <div className="detail-info">
-              <div className="detail-info__title">{itemData.infoTitle}</div>
-              <div>
-                {itemData.infoTexts.map((text, index) => (
-                    <div className="detail-info__text" key={index}>{text}</div>
-                ))}
-              </div>
+              <div className="detail-info__title">{item.small_description}</div>
+              <div className="detail-info__text">{item.description}</div>
             </div>
           </div>
       )}

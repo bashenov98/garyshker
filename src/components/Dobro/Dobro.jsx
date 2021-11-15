@@ -10,52 +10,16 @@ const Dobro = () => {
   setHideSidebar(false);
   setIsAuthPage(false);
 
-    const [dobro, setDobro] = useState([
-      {
-        is_completed: false,
-        title: 'РюкзакKIT1',
-        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
-        collected: '1000000',
-        necessary: '1500000',
-      },
-      {
-        is_completed: true,
-        title: 'РюкзакKIT2',
-        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
-        collected: '1000000',
-        necessary: '1500000',
-      },
-      {
-        is_completed: true,
-        title: 'РюкзакKIT3',
-        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
-        collected: '1000000',
-        necessary: '1500000',
-      },
-      {
-        is_completed: false,
-        title: 'РюкзакKIT4',
-        small_description: 'Собрали и развезли 50 рюкзаков для детей начальных классов из малообеспеченных семей.',
-        collected: '1000000',
-        necessary: '1500000',
-      },
-    ]);
+    const [dobro, setDobro] = useState([]);
     const router = useHistory();
 
     useEffect(() => {
         fetchItems();
     }, []);
 
-    let config = {
-        headers: {
-            'Authorization': 'JWT ' + localStorage.getItem('token')
-        }
-    }
-
     const fetchItems = () => {
-        axios.get("http://195.210.47.160/dobro/projects", config)
+        axios.get("http://195.210.47.160/dobro/projects")
             .then(function (response) {
-                console.log(config.headers)
                 setDobro(response.data);
                 console.log(response);
             })
