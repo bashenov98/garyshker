@@ -47,7 +47,7 @@ const Signup = () => {
             setData({...data, terms_ofuser: false});
     }
     return (
-        <div className="sign-up">
+        <div className="sign-up ">
             <div className="sign-up__top d-flex justify-content-between">
                 <div className="d-flex flex-column justify-content-center sign-up__top__img">
                     <img alt="logo" src={logoIcon}/>
