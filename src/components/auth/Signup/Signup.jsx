@@ -48,13 +48,13 @@ const Signup = () => {
     }
     return (
         <div className="sign-up ">
-            <div className="sign-up__top d-flex justify-content-between">
+            <div className="sign-up__top d-flex justify-content-between align-items-center">
                 <div className="d-flex flex-column justify-content-center sign-up__top__img">
                     <img alt="logo" src={logoIcon}/>
                 </div>
                 <div className="d-flex">
-                    <button className="sign-up__top__btn" onClick={() => {router.push('/login')}}>Регистрация</button>
-                    <button className="sign-up__top__btn sign-up__top__btn--active" onClick={() => {router.push('/edu')}}>Авторизация</button>
+                    <button className="sign-up__top__btn" onClick={() => {router.push('/signup')}}>Регистрация</button>
+                    <button className="sign-up__top__btn sign-up__top__btn--active" onClick={() => {router.push('/login')}}>Авторизация</button>
                 </div>
             </div>
             <div className="sign-up__content d-flex justify-content-center">

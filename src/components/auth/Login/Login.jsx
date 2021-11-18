@@ -47,7 +47,7 @@ const Login = () => {
                 </div>
                 <div>
                     <button className="login-top__btn login-top__btn--left" onClick={() => {router.push('/signup')}}>Регистрация</button>
-                    <button className="login-top__btn login-top__btn--right" onClick={() => {router.push('/main')}}>Авторизация</button>
+                    <button className="login-top__btn login-top__btn--right" onClick={() => {router.push('/login')}}>Авторизация</button>
                 </div>
             </div>
             <div className="d-flex justify-content-center w-100">

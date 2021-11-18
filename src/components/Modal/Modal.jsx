@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import close from "../../assets/images/close.svg";
 import bookmark from "../../assets/images/bookmark.svg";
 import play from "../../assets/images/polygon17.png";
@@ -8,21 +9,27 @@ import twit from "../../assets/images/003-twitter.svg";
 import './index.scss';
 import classNames from "classnames";
 import ReactPlayer from 'react-player';
-import {useState} from "react";
 import {ModalComment} from "../ModalComment/ModalComment";
-
-const comments = [
-  {
-    body: 'i still dont get why humans thought that using a super durable and long lasting material for packaging that \n' +
-      'you are meant to throw away was a good idea',
-    owner: 'Mustafa Myrza',
-    time: '2 days ago',
-  },
-]
 
 export const Modal = (props) => {
   const { open, onClose, item } = props;
+  console.log('item', item);
   const [isPlayActive, setIsPlayActive] = useState(false);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    fetchComments();
+  }, [item.id])
+
+  const fetchComments = () => {
+    axios
+      .get("http://195.210.47.160/edu/comments")
+      .then(function (response) {
+        setComments(response.data.filter(({ report }) => report === +item.id));
+      })
+      .catch(function (error) {})
+      .then(function () {});
+  };
 
   const onPlayClick = () => {
     setIsPlayActive(true);
@@ -105,7 +112,7 @@ export const Modal = (props) => {
             </div>
           </div>
           <div className="modal-comment w-100">
-            <ModalComment comments={comments}/>
+            <ModalComment activeItemId={item.id} comments={comments}/>
           </div>
         </div>
       </div>

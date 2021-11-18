@@ -9,7 +9,7 @@ export const WatchItem = (props) => {
   return (
     <div className="watch-div">
       <div className="watch-item">
-        <div className="watch-item__img" style={{backgroundImage: `url(${item.image})`}}>
+        <div className="watch-item__img" style={{backgroundImage: `url(http://195.210.47.160${item.image})`}}>
         </div>
         <div className="watch-item__content d-flex flex-column">
           <div className="d-flex justify-content-end">

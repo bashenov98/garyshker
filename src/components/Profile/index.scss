@@ -1,0 +1,64 @@
+.profile-top {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.profile-left {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #787878;
+    margin-right: 39px;
+}
+
+.profile-right {
+    color: #FFFFFF;
+}
+
+.profile-name {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.profile-mail {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #9A9797;
+}
+
+.profile-age {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #9A9797;
+}
+
+.profile-loc {
+    font-size: 14px;
+    color: #9A9797;
+}
+
+.main-read {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.read-items {
+    overflow-x: scroll;
+    margin-top: 34px;
+    overflow-y: unset;
+    max-width: 100%;
+}
+
+.main-watch {
+    width: 100%;
+    margin-top: 32px;
+
+}
+
+.watch-items {
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: unset;
+    margin-top: 34px;
+    margin-bottom: 160px;
+}
