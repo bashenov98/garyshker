@@ -1,16 +1,23 @@
 import * as React from 'react';
 import classNames from "classnames";
 import './index.scss';
+import { useHistory } from 'react-router';
 
 const url = "http://195.210.47.160";
 
 export const PopularItem = (props) => {
   const {item, onClickItem}  = props;
+  const history = useHistory();
+
+  const handleCardClick = () => {
+    history.push(`reading/${item.id}`);
+  }
+  // onClick={() => onClickItem(item)}
   return (
-    <div className="popular-div" onClick={() => onClickItem(item)}>
+    <div className="popular-div" onClick={handleCardClick}>
       <div
-        className={classNames(['popular-item', item.type === 'video' && 'popular-item--video'])}
-        style={{backgroundImage: `url(${item.image})`}}
+        className={classNames(['popular-item', item?.type === 'video' && 'popular-item--video'])}
+        style={{backgroundImage: `url(${item?.debt_report_image.length > 0 ? item.debt_report_image[0].image : item.image})`}}
       >
         <div className="popular-item__g">G.</div>
         <div className="d-flex flex-column popular-item__content">
@@ -22,8 +29,8 @@ export const PopularItem = (props) => {
               <div>🙏</div>
             </div>
             <div className="d-flex flex-column">
-              <div className="popular-item__info__title">Ментальное здоровье</div>
-              <div className="popular-item__info__subtitle">7 mins  •  1 weeks ago</div>
+              <div className="popular-item__info__title">{item.category.name}</div>
+              {/* <div className="popular-item__info__subtitle">7 mins  •  1 weeks ago</div> */}
             </div>
           </div>
         </div>

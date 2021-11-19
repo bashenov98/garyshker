@@ -48,7 +48,7 @@ const Header = () => {
         <div className="d-flex justify-content-between align-items-center header">
             <div className="d-flex">
                 <div className="header-logo">
-                    <img src={logo} alt="logo"/>
+                    <img src={logo} alt="logo" onClick={() => {router.push('/edu')}} />
                 </div>
                 <div className="header-search">
                     <input className="header-input" placeholder="Search" value={searchValue} onChange={searchChange}/>
@@ -67,7 +67,7 @@ const Header = () => {
                         <div className="header-dd">
                             <div className="dd-item d-flex">
                                 <img src={user} alt="user icon"/>
-                                <div className="header-dd__text">Личный кабинет</div>
+                                <div className="header-dd__text"onClick={() => {router.push('/profile')}}>Личный кабинет</div>
                             </div>
                             <div className="header-dd__divider"/>
                             <div className="dd-item d-flex">

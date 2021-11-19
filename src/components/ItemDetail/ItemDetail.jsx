@@ -1,4 +1,5 @@
 import React, {useContext, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import './index.scss';
 import backlogo from '../../assets/images/backpack-new.png';
 import play from "../../assets/images/polygon17.png";
@@ -10,13 +11,16 @@ import axios from "axios";
 
 export const ItemDetail = () => {
   const {setHideSidebar, setIsAuthPage} = useContext(AuthContext);
+  const  { id } = useParams();
   setHideSidebar(false);
   setIsAuthPage(false);
   const [isReportsActive, setIsReportsActive] = useState(false);
   const [item, setItem] = useState([]);
 
+  console.log('videos', item)
+
   const fetchItem = () => {
-    axios.get("http://195.210.47.160/dobro/project_detail/"+"1")
+    axios.get("http://195.210.47.160/dobro/project_detail/"+id)
         .then(function (response) {
           setItem(response.data);
           console.log(response);

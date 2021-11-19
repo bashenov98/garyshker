@@ -4,12 +4,12 @@ import './index.scss';
 const url = "http://195.210.47.160";
 
 export const WatchItem = (props) => {
-  const {item} = props;
+  const {item, onClickItem} = props;
 
   return (
-    <div className="watch-div">
+    <div className="watch-div" onClick={() => onClickItem(item)}>
       <div className="watch-item">
-        <div className="watch-item__img" style={{backgroundImage: `url(${item.image})`}}>
+        <div className="watch-item__img" style={{backgroundImage: `url(http://195.210.47.160${item.image})`}}>
         </div>
         <div className="watch-item__content d-flex flex-column">
           <div className="d-flex justify-content-end">

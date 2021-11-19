@@ -1,14 +1,21 @@
 import * as React from 'react';
+import { useHistory } from 'react-router';
 import './index.scss';
 import classNames from "classnames";
 
 export const ReadItem = (props) => {
   const {item} = props;
+  const history = useHistory();
+
+  const handleReportClick = () => {
+    history.push(`/reading/${item.id}`);
+  }
+  
   return (
-    <div className="read-div">
+    <div className="read-div" onClick={handleReportClick}>
       <div
         className="read-item"
-        style={{backgroundImage: `url(${item.image})`}}
+        style={{backgroundImage: `url(${item.debt_report_image.length > 0 ? item.debt_report_image[0].image : null })`}}
       >
         <div className="read-item__content d-flex flex-column">
           <div className="w-100 d-flex justify-content-end">

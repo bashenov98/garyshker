@@ -7,6 +7,8 @@ import {ItemDetail} from "../components/ItemDetail/ItemDetail";
 import {AboutUs} from "../components/AboutUs/AboutUs";
 import ContactUs from "../components/ContactUs/ContactUs";
 import {Faq} from "../components/Faq/Faq";
+import Profile from "../components/Profile/Profile";
+import Reading from "../components/Reading/reading";
 
 export const routes = [
     {path: '/notfound', component: NotFound, exact: true},
@@ -17,5 +19,7 @@ export const routes = [
     {path: '/signup', component: Signup},
     {path: '/about', component: AboutUs},
     {path: '/contact', component: ContactUs},
-    {path: '/faq', component: Faq}
+    {path: '/faq', component: Faq},
+    {path: '/profile', component: Profile},
+    {path: '/reading/:id', component: Reading}
 ]

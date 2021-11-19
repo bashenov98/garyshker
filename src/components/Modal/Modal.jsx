@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import close from "../../assets/images/close.svg";
 import bookmark from "../../assets/images/bookmark.svg";
 import play from "../../assets/images/polygon17.png";
@@ -8,21 +9,30 @@ import twit from "../../assets/images/003-twitter.svg";
 import './index.scss';
 import classNames from "classnames";
 import ReactPlayer from 'react-player';
-import {useState} from "react";
 import {ModalComment} from "../ModalComment/ModalComment";
-
-const comments = [
-  {
-    body: 'i still dont get why humans thought that using a super durable and long lasting material for packaging that \n' +
-      'you are meant to throw away was a good idea',
-    owner: 'Mustafa Myrza',
-    time: '2 days ago',
-  },
-]
 
 export const Modal = (props) => {
   const { open, onClose, item } = props;
+  console.log('item', item);
   const [isPlayActive, setIsPlayActive] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [commented, setCommented] = useState(false);
+ 
+  useEffect(() => {
+    fetchComments();
+  }, [item.id, commented])
+
+  console.log(comments, commented)
+
+  const fetchComments = () => {
+    axios
+      .get("http://195.210.47.160/edu/comments")
+      .then(function (response) {
+        setComments(response.data.filter(({ report }) => report === +item.id));
+      })
+      .catch(function (error) {})
+      .then(function () {});
+  };
 
   const onPlayClick = () => {
     setIsPlayActive(true);
@@ -42,14 +52,14 @@ export const Modal = (props) => {
           <div className="d-flex justify-content-between">
             <div className="modal__info d-flex flex-column">
               <div className="d-flex justify-content-between align-items-center">
-                <div className="modal__info__category">{item.category}</div>
-                <div className="modal__info__time">{item.time}</div>
+                <div className="modal__info__category">{item.category.name}</div>
+          {/* <div className="modal__info__time">{item.time}</div>       */}
               </div>
               <div className="modal__info__title">
                 {item.title}
               </div>
               <div className="modal__info__desc">
-                {item.description}
+                {item.body.substring(0, 10)}
               </div>
               <div className="mt-auto">
                 <div className="modal__info__text">Поделись с друзьями :)</div>
@@ -66,7 +76,7 @@ export const Modal = (props) => {
               </div>
             </div>
             <div className="modal__video">
-              {item.videoSrc &&
+              {item.video &&
                 <div className="video-block">
                   <div className="video-block__gradient">
                     {
@@ -95,17 +105,18 @@ export const Modal = (props) => {
                         },
                       },
                     }}
+                    autoPlay
                     height={343}
                     width="100%"
                     className="video-block__video"
-                    url={item.videoSrc}
+                    url={`http://195.210.47.160${item.video}`}
                   />
                 </div>
               }
             </div>
           </div>
           <div className="modal-comment w-100">
-            <ModalComment comments={comments}/>
+            <ModalComment activeItemId={item.id} comments={comments} setCommented={setCommented} />
           </div>
         </div>
       </div>

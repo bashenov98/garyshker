@@ -43,11 +43,11 @@ const Login = () => {
         <div className="login">
             <div className="login-top d-flex justify-content-between">
                 <div className="d-flex flex-column justify-content-center">
-                    <img alt="logo" src={logoIcon} className="login-top__img"/>
+                    <img alt="logo" src={logoIcon} className="login-top__img"onClick={() => {router.push('/edu')}} />
                 </div>
                 <div>
                     <button className="login-top__btn login-top__btn--left" onClick={() => {router.push('/signup')}}>Регистрация</button>
-                    <button className="login-top__btn login-top__btn--right" onClick={() => {router.push('/main')}}>Авторизация</button>
+                    <button className="login-top__btn login-top__btn--right" onClick={() => {router.push('/login')}}>Авторизация</button>
                 </div>
             </div>
             <div className="d-flex justify-content-center w-100">
