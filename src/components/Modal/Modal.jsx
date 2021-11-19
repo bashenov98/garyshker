@@ -22,6 +22,8 @@ export const Modal = (props) => {
     fetchComments();
   }, [item.id, commented])
 
+  console.log(comments, commented)
+
   const fetchComments = () => {
     axios
       .get("http://195.210.47.160/edu/comments")

@@ -33,11 +33,8 @@ export const ModalComment = ({ comments, activeItemId, setCommented }) => {
           }
         )
         .then(function (response) {
-          if (response.status == 200) {
-            console.log("commentValue", commentValue);
             setCommented((prev) => !prev);
             setCommentValue('');
-          }
         })
         .catch(function (error) {
           console.log(error);
@@ -74,7 +71,7 @@ export const ModalComment = ({ comments, activeItemId, setCommented }) => {
         )}
       </div>
       <div>
-        {comments.map((comment, index) => (
+        {comments.reverse().map((comment, index) => (
           <div key={index} className="comment-item d-flex">
             <div className="comment-avatar" />
             <div className="comment-body">
