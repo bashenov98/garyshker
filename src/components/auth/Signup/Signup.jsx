@@ -50,7 +50,7 @@ const Signup = () => {
         <div className="sign-up ">
             <div className="sign-up__top d-flex justify-content-between align-items-center">
                 <div className="d-flex flex-column justify-content-center sign-up__top__img">
-                    <img alt="logo" src={logoIcon}/>
+                    <img alt="logo" src={logoIcon}onClick={() => {router.push('/edu')}}/>
                 </div>
                 <div className="d-flex">
                     <button className="sign-up__top__btn" onClick={() => {router.push('/signup')}}>Регистрация</button>

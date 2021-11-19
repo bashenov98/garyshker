@@ -111,17 +111,26 @@ const Education = () => {
   const [reports, setReports] = useState([]);
   const [category, setCategory] = useState("all");
   const [categories, setCategories] = useState([]);
-//   const [popular, setPopular] = useState([]);
+  //   const [popular, setPopular] = useState([]);
 
-console.log('videos', reports)
-  
+  console.log("videos", activeItem);
+
+  function compare(a, b) {
+    if (a.count < b.count) {
+      return 1;
+    }
+    if (a.count > b.count) {
+      return -1;
+    }
+    return 0;
+  }
 
   const fetchCategories = () => {
     axios
       .get("http://195.210.47.160/edu/categories")
       .then(function (response) {
         console.log(response);
-        setCategories(response.data.categories)
+        setCategories(response.data.categories);
       })
       .catch(function (error) {})
       .then(function () {});
@@ -133,11 +142,11 @@ console.log('videos', reports)
         console.log(response);
         if (category === "all") {
           setVideos(response.data.videos);
-        //   setPopular(response.data.videos);
+          //   setPopular(response.data.videos);
         } else {
           var arr = response.data.videos;
           setVideos(arr.filter((a) => a.category.name === category));
-        //   setPopular(arr.filter((a) => a.category.name === category));
+          //   setPopular(arr.filter((a) => a.category.name === category));
         }
       })
       .catch(function (error) {})
@@ -219,19 +228,25 @@ console.log('videos', reports)
             </div>
           ))}
         </div>
-        <div className="main-popular">
-          <div className="d-flex align-items-center">
-            <img src={star} alt="star icon" className="category-item__img" />
-            <div className="main-popular__text">Популярное</div>
+        {category === "all" && (
+          <div className="main-popular">
+            <div className="d-flex align-items-center">
+              <img src={star} alt="star icon" className="category-item__img" />
+              <div className="main-popular__text">Популярное</div>
+            </div>
+            <div className="popular-items d-flex">
+              {/*<Slider {...settings}>*/}
+              {reports.sort(compare).map((item, index) => (
+                <PopularItem
+                  item={item}
+                  key={index}
+                  onClickItem={onClickItem}
+                />
+              ))}
+              {/*</Slider>*/}
+            </div>
           </div>
-          <div className="popular-items d-flex">
-            {/*<Slider {...settings}>*/}
-            {popularBlogs.map((item, index) => (
-              <PopularItem item={item} key={index} onClickItem={onClickItem} />
-            ))}
-            {/*</Slider>*/}
-          </div>
-        </div>
+        )}
         <div className="main-read">
           <div className="d-flex align-items-center">
             <img src={book} alt="star icon" className="category-item__img" />
@@ -243,39 +258,44 @@ console.log('videos', reports)
             ))}
           </div>
         </div>
-        <div className="main-watch">
-          <div className="d-flex align-items-center">
-            <img src={watch} alt="star icon" className="category-item__img" />
-            <div className="main-popular__text">Смотреть</div>
-          </div>
-          <div className="watch-items d-flex">
-            {videos.map((item, index) => (
-              <WatchItem item={item} key={index} />
-            ))}
-          </div>
-        </div>
-        <div className="main-bottom">
-          <div className="d-flex align-items-center">
-            <img src={watch} alt="star icon" className="category-item__img" />
-            <div className="main-popular__text">Смотреть</div>
-          </div>
-          <div className="main-bottom__group d-flex justify-content-between">
-            <div className="main-bottom__left">
-              <MainGroup
-                items={popularBlogs.slice(0, 3)}
-                onItemClick={onClickItem}
-              />
+        {category === "all" ? (
+          <div className="main-w">
+          <div className="main-watch">
+            <div className="d-flex align-items-center">
+              <img src={watch} alt="star icon" className="category-item__img" />
+              <div className="main-popular__text">Смотреть</div>
             </div>
-            <div className="main-bottom__right">
-              <MainGroup
-                items={popularBlogs.slice(1, 4)}
-                isColumnReverse
-                isRowReverse
-                onItemClick={onClickItem}
-              />
+            <div className="watch-items d-flex">
+              {videos.map((item, index) => (
+                <WatchItem item={item} key={index} onClickItem={onClickItem} />
+              ))}
             </div>
           </div>
-        </div>
+          </div>
+        ) : (
+          <div className="main-bottom">
+            <div className="d-flex align-items-center">
+              <img src={watch} alt="star icon" className="category-item__img" />
+              <div className="main-popular__text">Смотреть</div>
+            </div>
+            <div className="main-bottom__group d-flex justify-content-between">
+              <div className="main-bottom__left">
+                <MainGroup
+                  items={videos.slice(0, 3)}
+                  onItemClick={onClickItem}
+                />
+              </div>
+              <div className="main-bottom__right">
+                <MainGroup
+                  items={videos.slice(1, 4)}
+                  isColumnReverse
+                  isRowReverse
+                  onItemClick={onClickItem}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       {activeItem && (
         <Modal

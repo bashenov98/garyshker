@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import axios from "axios";
 
-export const ModalComment = ({ comments, activeItemId }) => {
+export const ModalComment = ({ comments, activeItemId, setCommented }) => {
   const [commentValue, setCommentValue] = useState("");
 
   const onInputChange = (e) => {
@@ -35,6 +35,8 @@ export const ModalComment = ({ comments, activeItemId }) => {
         .then(function (response) {
           if (response.status == 200) {
             console.log("commentValue", commentValue);
+            setCommented((prev) => !prev);
+            setCommentValue('');
           }
         })
         .catch(function (error) {

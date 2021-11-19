@@ -16,10 +16,11 @@ export const Modal = (props) => {
   console.log('item', item);
   const [isPlayActive, setIsPlayActive] = useState(false);
   const [comments, setComments] = useState([]);
-
+  const [commented, setCommented] = useState(false);
+ 
   useEffect(() => {
     fetchComments();
-  }, [item.id])
+  }, [item.id, commented])
 
   const fetchComments = () => {
     axios
@@ -49,14 +50,14 @@ export const Modal = (props) => {
           <div className="d-flex justify-content-between">
             <div className="modal__info d-flex flex-column">
               <div className="d-flex justify-content-between align-items-center">
-                <div className="modal__info__category">{item.category}</div>
-                <div className="modal__info__time">{item.time}</div>
+                <div className="modal__info__category">{item.category.name}</div>
+          {/* <div className="modal__info__time">{item.time}</div>       */}
               </div>
               <div className="modal__info__title">
                 {item.title}
               </div>
               <div className="modal__info__desc">
-                {item.description}
+                {item.body.substring(0, 10)}
               </div>
               <div className="mt-auto">
                 <div className="modal__info__text">Поделись с друзьями :)</div>
@@ -73,7 +74,7 @@ export const Modal = (props) => {
               </div>
             </div>
             <div className="modal__video">
-              {item.videoSrc &&
+              {item.video &&
                 <div className="video-block">
                   <div className="video-block__gradient">
                     {
@@ -102,17 +103,18 @@ export const Modal = (props) => {
                         },
                       },
                     }}
+                    autoPlay
                     height={343}
                     width="100%"
                     className="video-block__video"
-                    url={item.videoSrc}
+                    url={`http://195.210.47.160${item.video}`}
                   />
                 </div>
               }
             </div>
           </div>
           <div className="modal-comment w-100">
-            <ModalComment activeItemId={item.id} comments={comments}/>
+            <ModalComment activeItemId={item.id} comments={comments} setCommented={setCommented} />
           </div>
         </div>
       </div>

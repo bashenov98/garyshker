@@ -21,5 +21,5 @@ export const routes = [
     {path: '/contact', component: ContactUs},
     {path: '/faq', component: Faq},
     {path: '/profile', component: Profile},
-    {path: '/Reading', component: Reading}
+    {path: '/reading/:id', component: Reading}
 ]
