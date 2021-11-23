@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./index.scss";
+import { Modal } from "../Modal/Modal";
 import { AuthContext } from "../../context";
 import book from "../../assets/images/book.png";
 import watch from "../../assets/images/watch.png";
@@ -16,10 +17,12 @@ const Profile = () => {
   const [videos, setVideos] = useState([]);
   const [reports, setReports] = useState([]);
   const [profile, setProfile] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
   setHideSidebar(false);
   setIsAuthPage(false);
 
-  console.log("profile", profile);
+  console.log("profile", activeItem);
 
   const fetchVideos = () => {
     axios
@@ -60,6 +63,11 @@ const Profile = () => {
     }
   };
 
+  const onClickItem = (selectedItem) => {
+    setShowModal(true);
+    setActiveItem(selectedItem);
+  };
+
   useEffect(() => {
     fetchVideos();
     fetchReports();
@@ -82,7 +90,10 @@ const Profile = () => {
             <b>{profile.full_name}</b> <img src={edit} alt="" />{" "}
           </p>
           <p className="profile-mail">{profile.email}</p>
-          <p className="profile-age">{new Date().getFullYear() - (+profile.birth_date.substring(0, 4))} years</p>
+          <p className="profile-age">
+            {new Date().getFullYear() - +profile.birth_date.substring(0, 4)}{" "}
+            years
+          </p>
           <p className="profile-loc d-flex align-items-center">
             {" "}
             <img className="me-2" src={location} alt="" />
@@ -109,11 +120,21 @@ const Profile = () => {
           </div>
           <div className="watch-items d-flex">
             {videos.map((item, index) => (
-              <WatchItem item={item} key={index} />
+              <WatchItem item={item} key={index} onClickItem={onClickItem} />
             ))}
           </div>
         </div>
       </div>
+      {activeItem && (
+        <Modal
+          open={showModal && activeItem}
+          onClose={() => {
+            setShowModal(false);
+            setActiveItem(null);
+          }}
+          item={activeItem}
+        />
+      )}
     </div>
   ) : null;
 };

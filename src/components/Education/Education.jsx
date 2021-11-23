@@ -106,7 +106,7 @@ const Education = () => {
   setHideSidebar(false);
   setIsAuthPage(false);
   const [showModal, setShowModal] = useState(false);
-  const [activeItem, setActiveItem] = useState();
+  const [activeItem, setActiveItem] = useState(null);
   const [videos, setVideos] = useState([]);
   const [reports, setReports] = useState([]);
   const [category, setCategory] = useState("all");
@@ -260,17 +260,25 @@ const Education = () => {
         </div>
         {category === "all" ? (
           <div className="main-w">
-          <div className="main-watch">
-            <div className="d-flex align-items-center">
-              <img src={watch} alt="star icon" className="category-item__img" />
-              <div className="main-popular__text">Смотреть</div>
+            <div className="main-watch">
+              <div className="d-flex align-items-center">
+                <img
+                  src={watch}
+                  alt="star icon"
+                  className="category-item__img"
+                />
+                <div className="main-popular__text">Смотреть</div>
+              </div>
+              <div className="watch-items d-flex">
+                {videos.map((item, index) => (
+                  <WatchItem
+                    item={item}
+                    key={index}
+                    onClickItem={onClickItem}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="watch-items d-flex">
-              {videos.map((item, index) => (
-                <WatchItem item={item} key={index} onClickItem={onClickItem} />
-              ))}
-            </div>
-          </div>
           </div>
         ) : (
           <div className="main-bottom">
@@ -300,7 +308,10 @@ const Education = () => {
       {activeItem && (
         <Modal
           open={showModal && activeItem}
-          onClose={() => setShowModal(false)}
+          onClose={() => {
+            setShowModal(false);
+            setActiveItem(null);
+          }}
           item={activeItem}
         />
       )}

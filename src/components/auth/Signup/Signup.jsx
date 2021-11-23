@@ -113,7 +113,7 @@ const Signup = () => {
                     <div className="sign-up-forgot">
                         <div className="d-flex justify-content-between align-items-center w-100">
                             <a href="" className="sign-up-forgot__text">Забыли пароль?</a>
-                            <button className="sign-up-forgot__btn" onClick={signup}>Войти</button>
+                            <button className="sign-up-forgot__btn" onClick={signup}>Зарегистрироваться</button>
                         </div>
                         <label className="sign-up-error">{error}</label>
                     </div>

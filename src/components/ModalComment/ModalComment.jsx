@@ -71,7 +71,7 @@ export const ModalComment = ({ comments, activeItemId, setCommented }) => {
         )}
       </div>
       <div>
-        {comments.reverse().map((comment, index) => (
+        {comments.map((comment, index) => (
           <div key={index} className="comment-item d-flex">
             <div className="comment-avatar" />
             <div className="comment-body">
